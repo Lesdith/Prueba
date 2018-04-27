@@ -7,7 +7,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Prueba.Models
 {
-    public class RolModels
+    [Table ("tbl_Rols")]
+    public class Rol
     {
         [Key]
         public int IDRol { get; set; }
@@ -15,5 +16,8 @@ namespace Prueba.Models
         [Required (ErrorMessage = "El campo {0} es requerido")]
         [Display (Name = "Descripción")]
         public string Description { get; set; }
+
+        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<RolPermission> RolPermissions { get; set; }
     }
 }

@@ -8,7 +8,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Prueba.Models
 {
-    public class UserModels
+    [Table ("tbl_users")]
+    public class User
     {
         [Key]
         public int IDUser { get; set; }
@@ -30,6 +31,9 @@ namespace Prueba.Models
         [Display(Name = "Fecha de Modificación de la Contraseña")]
         public DateTime ModificationDatePassword { get; set; }
 
+        [Required (ErrorMessage = "El campo {0} es requerido")]
+        [Display (Name = "Rol:")]
+        public int IDRol { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [StringLength(255, ErrorMessage = "Debe contener entre 8 y 25 caracteres", MinimumLength = 8)]
@@ -39,6 +43,6 @@ namespace Prueba.Models
         [Index("UserModels_Email_Index", IsUnique = true)]
         public int email { get; set; }
 
-        public virtual ICollection<RolModels> Rols { get; set; }
+        public virtual Rol Rol { get; set; }
     }
 }

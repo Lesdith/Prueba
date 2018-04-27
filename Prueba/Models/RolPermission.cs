@@ -26,6 +26,6 @@ namespace Prueba.Models
         [Display(Name = "¿Puede borrar?")]
         public bool CanErase { get; set; }
 
-       // public virtual Rol Rol { get; set; }
+        public virtual Rol Rol { get; set; }
     }
 }
